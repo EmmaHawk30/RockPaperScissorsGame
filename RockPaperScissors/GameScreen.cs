@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,19 +19,23 @@ namespace RockPaperScissors
         public int playerScore = 0;
         public bool buttonWasClicked = false;
 
+        public string fileToReadRockImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\\Rock.png";
+        public string fileToReadPaperImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\\Paper.png";
+        public string fileToReadScissorsImage = Path.GetDirectoryName(Application.ExecutablePath) + @"\\Scissors.png";
+
         public GameScreen()
         {
             InitializeComponent();
 
-            Image rock = Image.FromFile(@"C:\\Users\\emmah\\Documents\\USB back up 14092021\\Programming\\Mini Projects\\RockPaperScissors\\Images\\Rock.png");
+            Image rock = Image.FromFile(fileToReadRockImage);
             pbxRock.Image = rock;
             pbxRock.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            Image paper = Image.FromFile(@"C:\\Users\\emmah\\Documents\\USB back up 14092021\\Programming\\Mini Projects\\RockPaperScissors\\Images\\Paper.png");
+            Image paper = Image.FromFile(fileToReadPaperImage);
             pbxPaper.Image = paper;
             pbxPaper.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            Image scissors = Image.FromFile(@"C:\\Users\\emmah\\Documents\\USB back up 14092021\\Programming\\Mini Projects\\RockPaperScissors\\Images\\Scissors.png");
+            Image scissors = Image.FromFile(fileToReadScissorsImage);
             pbxScissors.Image = scissors;
             pbxScissors.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -67,10 +73,11 @@ namespace RockPaperScissors
 
         private void GamePlay()
         {
-            Image rock = Image.FromFile(@"C:\\Users\\emmah\\Documents\\USB back up 14092021\\Programming\\Mini Projects\\RockPaperScissors\\Images\\Rock.png");
+
+            Image rock = Image.FromFile(fileToReadRockImage);
             pbxComputerChoice.SizeMode = PictureBoxSizeMode.StretchImage;
-            Image paper = Image.FromFile(@"C:\\Users\\emmah\\Documents\\USB back up 14092021\\Programming\\Mini Projects\\RockPaperScissors\\Images\\Paper.png");
-            Image scissors = Image.FromFile(@"C:\\Users\\emmah\\Documents\\USB back up 14092021\\Programming\\Mini Projects\\RockPaperScissors\\Images\\Scissors.png");
+            Image paper = Image.FromFile(fileToReadPaperImage);
+            Image scissors = Image.FromFile(fileToReadScissorsImage);
             string playerChoice = "";
 
             
